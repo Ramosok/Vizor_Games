@@ -3,9 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "gulpfile.js",
+  "homepage": "https://ramosok.github.io/Vizor_Games",
   "scripts": {
     "start": "gulp start",
-    "build": "gulp build"
+    "build": "gulp build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "Denys Vykhrystiuk",
