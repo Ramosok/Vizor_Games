@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Test</title>
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+<div class="container">
+  <h1>Card List</h1>
+
+  <form class="card-form">
+    <input maxlength="19" class="card-input" placeholder="9999-9999-9999-9999">
+    <textarea maxlength="1024" rows="5" cols="45" name="text" class="card-input-comment"
+              placeholder="Add a comment..."></textarea>
+    <button type="submit" class="add-button">Add</button>
+  </form>
+  <ul class="card-items">
+  </ul>
+  <div class="modal">
+    <div class="modal_content">
+      <p>Точно хотите удалить эту карту?</p>
+      <div class="modal_btn_container">
+        <button class="confirmation_delete_btn">Да</button>
+        <button class="exit_btn">Нет</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="js/main.min.js"></script>
+</body>
+</html>
