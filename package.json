@@ -48,7 +48,8 @@
     "webpack-stream": "^5.2.1",
     "card-validator": "8.1.1",
     "uuid": "^8.3.2",
-    "inputmask": "^4.0.8"
+    "inputmask": "^4.0.8",
+    "gh-pages": "^3.2.3"
   },
   "dependencies": {
     "gulp-htmlmin": "^5.0.1",
