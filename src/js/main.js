@@ -7,12 +7,13 @@ const cardInputValue = document.querySelector('.card-input-comment');
 const cardItemsList = document.querySelector('.card-items');
 const modal = document.querySelector('.modal');
 const body = document.querySelector('body');
+const error = document.querySelector('.error');
 
 let cardsList = [];
 
 const maskInputCardNumber = (event) => {
-  if(!cardInput.value.replace(/[^\d]/g,'')) {
-      cardInput.value = '';
+  if (!cardInput.value.replace(/[^\d]/g, '')) {
+    cardInput.value = '';
   }
   if (event.keyCode !== 8) {
     if (cardInput.value.length === 4 || cardInput.value.length === 9 || cardInput.value.length === 14) {
@@ -20,6 +21,9 @@ const maskInputCardNumber = (event) => {
     }
   }
 };
+const cleanError = () => {
+  error.innerHTML = ""
+}
 
 const addNewCard = (event) => {
   event.preventDefault();
@@ -30,9 +34,12 @@ const addNewCard = (event) => {
       const cardNumber = cardInput.value;
       const cardComment = cardInputValue.value;
       addCard({cardNumber, cardComment, cardType});
+    } else {
+      error.innerHTML = "your card is not a visa or mastercard card"
     }
   }
 }
+
 const addCard = ({cardNumber, cardComment, cardType}) => {
   const regEx = /^[0-9]/
   if (cardNumber.match(regEx) && cardType === "visa" || cardType === "mastercard") {
@@ -47,6 +54,7 @@ const addCard = ({cardNumber, cardComment, cardType}) => {
     cardInput.value = '';
     cardInputValue.value = '';
   }
+
 }
 
 const renderCards = () => {
@@ -59,7 +67,7 @@ const renderCards = () => {
     li.innerHTML =
       `<p>Card number - ${card.cardNumber}</p>
        <p class="card_comment">Comment - ${card.cardComment}</p>
-       <p>Card type - ${card.cardType}</p>
+       <p>Card type - ${card.cardType} </p>
        <button class="delete-button">X</button>`;
     cardItemsList.append(li);
   });
@@ -102,6 +110,7 @@ const confirmationDeleteCard = (event) => {
 }
 
 cardInput.addEventListener('keydown', maskInputCardNumber);
+cardInput.addEventListener("focus", cleanError)
 cardForm.addEventListener('submit', addNewCard);
 cardItemsList.addEventListener('click', confirmationDeleteCard);
 
